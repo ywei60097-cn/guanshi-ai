@@ -1,0 +1,11 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "projectname": "guanshi-daily-divination",
+  "description": "观时：子平命理日常助手",
+  "appid": "touristappid",
+  "setting": {
+    "es6": true,
+    "minified": true,
+    "postcss": true
+  }
+}

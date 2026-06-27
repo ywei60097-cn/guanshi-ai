@@ -1,0 +1,11 @@
+.core-label { display: block; margin-bottom: 72rpx; color: #58f6c5; font-size: 19rpx; letter-spacing: 3rpx; }
+.form { margin-top: 70rpx; border-top: 1rpx solid rgba(178,205,213,.36); }
+.field { padding: 30rpx 0 25rpx; border-bottom: 1rpx solid rgba(178,205,213,.2); }
+.field text { display: block; margin-bottom: 17rpx; color: #8d9aa9; font-size: 20rpx; letter-spacing: 2rpx; }
+.field picker, .field input, .unknown-time { color: #e9f3ee; font-size: 31rpx; }
+.unknown-time { color: #8d9aa9; }
+.time-switch { display: flex; align-items: center; justify-content: space-between; margin-top: 22rpx; }
+.time-switch text { margin: 0; color: #8d9aa9; font-size: 21rpx; letter-spacing: 0; }
+.placeholder { color: #536071; }
+.launch { display: flex; align-items: center; justify-content: space-between; margin-top: 48rpx; padding: 0 30rpx; color: #06110f; background: #58f6c5; font-size: 28rpx; line-height: 100rpx; box-shadow: 0 0 30rpx rgba(88,246,197,.28); }
+.launch text { font-size: 38rpx; }

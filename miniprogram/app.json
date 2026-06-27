@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/onboarding/index",
+    "pages/today/index",
+    "pages/scene/index",
+    "pages/result/index",
+    "pages/reasoning/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#060812",
+    "backgroundTextStyle": "light"
+  },
+  "sitemapLocation": "sitemap.json"
+}

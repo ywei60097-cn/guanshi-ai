@@ -1,0 +1,9 @@
+<view class="page" wx:if="{{reading}}">
+  <button class="back" bindtap="back">回到今天</button>
+  <text class="eyebrow">FACT → RULE → SCENE</text><text class="display">命理推演\n不是黑箱。</text>
+  <text class="lead">只有先看到排盘事实与规则顺序，场景建议才有可检查的来源。</text>
+  <view class="summary"><view><text>四柱</text><text class="summary-value">{{pillars}}</text></view><view><text>节气月</text><text class="summary-value">{{reading.chart.currentJie}}</text></view><view><text>流日</text><text class="summary-value">{{reading.transit.day}}</text></view><view><text>规则版本</text><text class="summary-value">{{reading.rulebookVersion}}</text></view></view>
+  <view class="order"><text>RULE ORDER</text><view>月令与格局候选 → 调候 → 旺衰辅助 → 流通与作用 → 场景映射</view></view>
+  <view class="steps"><view wx:for="{{trace}}" wx:key="id" class="step"><text class="number">0{{index + 1}}</text><view><text class="id">{{item.id}} / {{item.source}}</text><text class="fact">{{item.fact}}</text><text class="inference">{{item.inference}}</text></view></view></view>
+  <view class="limits"><text>LIMITATIONS / CURRENT BUILD</text><view wx:for="{{limitations}}" wx:key="*this">{{item}}</view></view>
+</view>

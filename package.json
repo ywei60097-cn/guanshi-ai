@@ -1,0 +1,14 @@
+{
+  "name": "guanshi-daily-divination",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check app.js && node --check bazi-engine.js && node --check scene-advice.js && node --check server/index.js && rg --files miniprogram -g '*.js' | xargs -n1 node --check && node --test tests/*.test.js",
+    "start": "python3 -m http.server 4173",
+    "server": "node server/index.js"
+  },
+  "dependencies": {
+    "lunar-javascript": "^1.7.4"
+  }
+}

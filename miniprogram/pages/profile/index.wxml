@@ -1,0 +1,6 @@
+<view class="page" wx:if="{{profile}}">
+  <text class="eyebrow">LOCAL PROFILE / CALCULATION CONFIG</text><text class="display">我的命盘\n配置</text>
+  <view class="list"><view><text>出生资料</text><text class="value">{{profile.birthDate}} · {{profile.birthTime || '未知'}}</text></view><view><text>出生地</text><text class="value">{{profile.birthPlace}}</text></view><view><text>四柱</text><text class="value">{{pillars}}</text></view><view><text>换月规则</text><text class="value">按节气换月</text></view><view><text>子时规则</text><text class="value">{{profile.dayBoundary === 'ziStart' ? '子初换日' : '零点换日'}}</text></view><view><text>资料存储</text><text class="value">本机 + 无状态计算</text></view></view>
+  <view class="notice"><text>资料边界</text><view>出生资料保存在本机；首发 API 不持久化请求体。你可随时删除本机资料。</view></view>
+  <button class="delete" bindtap="clearData">删除本地资料与本次结果</button>
+</view>

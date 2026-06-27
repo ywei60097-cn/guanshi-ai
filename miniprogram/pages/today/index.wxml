@@ -1,0 +1,11 @@
+<view class="page">
+  <view class="top"><view><text class="date">TODAY</text><text class="transit">{{today.transitDay}} 日 · {{today.currentJie}}</text></view><button class="profile" bindtap="openProfile">命</button></view>
+  <view wx:if="{{loading}}" class="loading">命盘同步中…</view>
+  <view wx:elif="{{error}}" class="error">{{error}}<text bindtap="load"> 重新尝试</text></view>
+  <block wx:else>
+    <view class="core"><text class="core-label">● BAZI CORE</text><view class="core-main"><view class="orbit"><text>DAY MASTER</text><text class="day-master">{{today.dayMaster}}</text><text class="element">{{today.dayMasterElement}}</text></view><view class="core-copy"><text class="eyebrow">TODAY FIELD</text><text class="title">先辨节奏，\n再作选择。</text><text>{{today.summary}}</text></view></view><view class="metrics"><text>月令 <text class="metric-value">{{today.monthBranch}}</text></text><text>候选 <text class="metric-value">{{today.patternCandidate}}</text></text><text>旺衰 <text class="metric-value">{{today.strength}}</text></text></view></view>
+    <view class="advice"><view wx:for="{{today.adviceRows}}" wx:key="key" class="advice-row" data-scene="{{item.key}}" bindtap="openScene"><text class="signal">{{item.index}}</text><text>{{item.label}}</text><text>{{item.value}}</text><text class="signal">↗</text></view></view>
+    <view class="heading"><text>调取一个具体场景</text><text class="heading-meta">SCENE MODULES</text></view><view class="scenes"><view wx:for="{{sceneCards}}" wx:key="key" class="scene" data-scene="{{item.key}}" bindtap="openScene"><text>{{item.index}} / {{item.detail}}</text><text class="scene-title">{{item.title}}</text><text class="scene-arrow">↗</text></view></view>
+    <view class="trace" bindtap="openReasoning"><text>TRACE</text> 查看今天的推演依据 <text class="trace-arrow">→</text></view>
+  </block>
+</view>
