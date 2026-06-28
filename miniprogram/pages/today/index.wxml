@@ -3,9 +3,16 @@
   <view wx:if="{{loading}}" class="loading">命盘同步中…</view>
   <view wx:elif="{{error}}" class="error">{{error}}<text bindtap="load"> 重新尝试</text></view>
   <block wx:else>
-    <view class="core"><text class="core-label">● BAZI CORE</text><view class="core-main"><view class="orbit"><text>DAY MASTER</text><text class="day-master">{{today.dayMaster}}</text><text class="element">{{today.dayMasterElement}}</text></view><view class="core-copy"><text class="eyebrow">TODAY FIELD</text><text class="title">先辨节奏，\n再作选择。</text><text>{{today.summary}}</text></view></view><view class="metrics"><text>月令 <text class="metric-value">{{today.monthBranch}}</text></text><text>候选 <text class="metric-value">{{today.patternCandidate}}</text></text><text>旺衰 <text class="metric-value">{{today.strength}}</text></text></view></view>
-    <view class="advice"><view wx:for="{{today.adviceRows}}" wx:key="key" class="advice-row" data-scene="{{item.key}}" bindtap="openScene"><text class="signal">{{item.index}}</text><text>{{item.label}}</text><text>{{item.value}}</text><text class="signal">↗</text></view></view>
+    <view class="core"><text class="core-label">● GUANSHI AI</text><view class="core-main"><view class="orbit"><text>DAY MASTER</text><text class="day-master">{{today.dayMaster}}</text><text class="element">{{today.dayMasterElement}}</text></view><view class="core-copy"><text class="eyebrow">MASTER READING</text><text class="title">{{today.aiHeadline}}</text><text>{{today.aiSummary}}</text></view></view><view class="metrics"><text>月令 <text class="metric-value">{{today.monthBranch}}</text></text><text>候选 <text class="metric-value">{{today.patternCandidate}}</text></text><text>旺衰 <text class="metric-value">{{today.strength}}</text></text></view></view>
     <view class="heading"><text>调取一个具体场景</text><text class="heading-meta">SCENE MODULES</text></view><view class="scenes"><view wx:for="{{sceneCards}}" wx:key="key" class="scene" data-scene="{{item.key}}" bindtap="openScene"><text>{{item.index}} / {{item.detail}}</text><text class="scene-title">{{item.title}}</text><text class="scene-arrow">↗</text></view></view>
+    <view class="ask-panel">
+      <view class="heading ask-heading"><text>问观时</text><text class="heading-meta">AI MASTER</text></view>
+      <view class="ask-lead">你可以直接问今天怎么取舍。观时会带着你的命盘、今日节气和最近问题一起回答。</view>
+      <view class="question-list">
+        <view wx:for="{{questions}}" wx:key="*this" class="question" data-question="{{item}}" bindtap="openAsk">{{item}}<text>→</text></view>
+      </view>
+      <button class="ask-free" bindtap="openAsk">自由问一句 <text>→</text></button>
+    </view>
     <view class="trace" bindtap="openReasoning"><text>TRACE</text> 查看今天的推演依据 <text class="trace-arrow">→</text></view>
   </block>
 </view>

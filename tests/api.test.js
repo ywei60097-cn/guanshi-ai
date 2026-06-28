@@ -25,8 +25,7 @@ test("reading API returns a traceable result for every retained scene", async ()
       outfit: "日常通勤",
       outing: "见客户",
       work_social: "提出想法",
-      timing: "上午推进",
-      mahjong: "东位",
+      mahjong: "帮我排座位",
     };
     for (const [scene, choice] of Object.entries(retainedScenes)) {
       const response = await fetch(`${baseUrl}/v1/readings`, {

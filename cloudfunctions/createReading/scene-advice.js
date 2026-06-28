@@ -1,13 +1,13 @@
-import { ELEMENT_COLORS, ELEMENT_DIRECTIONS, ELEMENT_LABEL } from "./bazi-engine.js";
+const { ELEMENT_COLORS, ELEMENT_DIRECTIONS, ELEMENT_LABEL } = require("./bazi-engine");
 
-export const SCENES = {
+const SCENES = {
   outfit: { title: "穿什么", detail: "穿搭色调", lead: "先尊重现实场合，再从日常倾向里挑一个让自己更稳的色域。", field: "今天的场合", choices: ["日常通勤", "正式见面", "朋友聚会", "运动休闲"] },
   outing: { title: "往哪里", detail: "出行方位", lead: "方位只是一个微小参考。路线、天气、交通和安全始终优先。", field: "这次出门要做什么", choices: ["见客户", "处理事务", "短途出行", "散心走走"] },
   work_social: { title: "怎么推进", detail: "行动策略", lead: "把命理提示翻译为沟通和执行的节奏，而不是替你替代判断。", field: "这件事更接近", choices: ["提出想法", "谈合作", "整理收尾", "关系沟通"] },
   mahjong: { title: "坐哪里", detail: "娱乐参考", lead: "只给专注感与节奏的娱乐参考；不预测输赢，也不鼓励下注。", field: "判断方式", choices: ["帮我排座位"] },
 };
 
-export function buildSceneAdvice(reading, scene, choice) {
+function buildSceneAdvice(reading, scene, choice) {
   const { analysis, transit } = reading;
   const primary = analysis.dailyFocus.primary;
   const secondary = analysis.dailyFocus.secondary;
@@ -45,3 +45,5 @@ export function buildSceneAdvice(reading, scene, choice) {
   }
   return { headline, primaryAdvice, alternatives, ranking, transit, appliedRule: analysis.ruleTrace[0] };
 }
+
+module.exports = { SCENES, buildSceneAdvice };

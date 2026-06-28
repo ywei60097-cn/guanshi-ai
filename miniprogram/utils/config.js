@@ -1,4 +1,5 @@
-// 发布前改为已备案、已在微信后台配置的 HTTPS 服务器域名；不要填 IP、localhost 或密钥。
-const API_BASE_URL = "https://api.example.com";
+// 服务器 API 模式遗留配置。
+// 当前云开发版本已改用 wx.cloud.callFunction，不再读取这个地址。
+const API_BASE_URL = "http://127.0.0.1:8080";
 
 module.exports = { API_BASE_URL };

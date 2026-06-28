@@ -1,9 +1,12 @@
 <view class="page" wx:if="{{result}}">
   <button class="back" bindtap="back">调整条件</button>
-  <view class="result-title"><view><text class="eyebrow">SCENE RESULT / {{scene}}</text><text class="display signal">{{advice.headline}}</text></view><text class="sigil">{{primaryElement}}</text></view>
+  <view class="result-title"><view><text class="eyebrow">SCENE RESULT / {{sceneLabel}}</text><text class="display signal">{{advice.headline}}</text></view><text class="sigil">{{primaryElement}}</text></view>
   <text class="intro">{{advice.primaryAdvice}}</text>
+  <view wx:if="{{advice.aiNote}}" class="group ai-explain"><text>观时AI 解释</text><view>{{advice.aiNote}}</view></view>
+  <view wx:if="{{aiDebug}}" class="group"><text>AI 调试</text><view>{{aiDebug}}</view></view>
   <view class="group"><text>备选路径</text><view wx:for="{{advice.alternatives}}" wx:key="*this" class="item">{{item}}</view></view>
   <view wx:if="{{advice.ranking}}" class="group"><text>信号排序</text><view wx:for="{{advice.ranking}}" wx:key="label" class="rank"><text class="rank-index">0{{index + 1}}</text><view><text class="rank-title">{{item.label}}</text><text class="rank-reason">{{item.reason}}</text></view></view></view>
+  <button class="followup" bindtap="askFollowup">继续追问观时 <text>→</text></button>
   <view class="group"><text>本次依据</text><view class="trace-source">{{advice.appliedRule.source}}</view><view>{{advice.appliedRule.inference}}</view></view>
   <view class="group"><text>现实边界</text><view>流日为 {{result.transit.day}}。本建议只提供行动偏好，不对输赢、收益、健康或风险作确定预测。</view></view>
   <view class="reason" bindtap="openReasoning"><text>TRACE</text> 看完整推演依据 <text class="reason-arrow">→</text></view>

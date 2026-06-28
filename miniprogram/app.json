@@ -3,6 +3,7 @@
     "pages/onboarding/index",
     "pages/today/index",
     "pages/scene/index",
+    "pages/ask/index",
     "pages/result/index",
     "pages/reasoning/index",
     "pages/profile/index"

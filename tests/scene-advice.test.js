@@ -12,13 +12,11 @@ const reading = createReading(
   new Date("2026-06-26T09:00:00+08:00"),
 );
 
-test("timing advice distinguishes a matching choice from a suggested reschedule", () => {
-  const different = buildSceneAdvice(reading, "timing", "上午推进");
-  assert.match(different.headline, /若能调整/);
-  assert.match(different.primaryAdvice, /你选择的是上午推进/);
-  assert.match(different.alternatives[0], /若必须在上午行动/);
+test("mahjong advice ranks positions without requiring a selected seat", () => {
+  const advice = buildSceneAdvice(reading, "mahjong", "帮我排座位");
 
-  const matching = buildSceneAdvice(reading, "timing", "傍晚收尾");
-  assert.match(matching.headline, /相合/);
-  assert.match(matching.primaryAdvice, /傍晚/);
+  assert.match(advice.headline, /若能自选/);
+  assert.match(advice.primaryAdvice, /不能坐推荐位/);
+  assert.equal(advice.ranking.length, 4);
+  assert.equal(new Set(advice.ranking.map((item) => item.label)).size, 4);
 });

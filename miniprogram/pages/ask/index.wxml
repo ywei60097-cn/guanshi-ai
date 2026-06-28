@@ -1,0 +1,48 @@
+<view class="page ask-page">
+  <button class="back" bindtap="back">返回今日场</button>
+  <text class="eyebrow">ASK GUANSHI</text>
+  <text class="display">问观时</text>
+  <text class="lead">你可以把现实限制说出来。比如：我今天只能坐南位，可以吗？或者今天适合见客户还是写方案？</text>
+
+  <view class="chat">
+    <block wx:for="{{messages}}" wx:key="index">
+      <view wx:if="{{item.role === 'user'}}" class="bubble user">{{item.text}}</view>
+      <view wx:else class="bubble assistant">
+        <block wx:if="{{item.error}}">
+          <text class="assistant-label">观时回答</text>
+          <text class="assistant-error">{{item.error}}</text>
+        </block>
+        <block wx:else>
+          <text class="assistant-label">观时回答</text>
+          <text class="assistant-title">{{item.answer.headline}}</text>
+          <text class="assistant-main">{{item.answer.primary}}</text>
+          <view wx:if="{{item.answer.suggestions}}" class="suggestions">
+            <view wx:for="{{item.answer.suggestions}}" wx:key="*this" wx:for-item="suggestion" class="suggestion">{{suggestion}}</view>
+          </view>
+          <view wx:if="{{item.answer.basis}}" class="basis"><text>本次依据</text><view>{{item.answer.basis}}</view></view>
+          <view wx:if="{{item.answer.boundary}}" class="basis"><text>现实边界</text><view>{{item.answer.boundary}}</view></view>
+        </block>
+      </view>
+    </block>
+
+    <view wx:if="{{loading}}" class="luopan-wrap">
+      <view class="luopan">
+        <image class="luopan-image" src="/assets/luopan.png" mode="aspectFit" />
+        <text class="luopan-text">观时排盘中</text>
+      </view>
+    </view>
+
+    <view wx:if="{{aiDebug}}" class="debug">{{aiDebug}}</view>
+  </view>
+
+  <view wx:if="{{!messages.length && !loading}}" class="quick">
+    <view wx:for="{{quickQuestions}}" wx:key="*this" class="quick-item" data-question="{{item}}" bindtap="chooseQuestion">{{item}}<text>→</text></view>
+  </view>
+
+  <text wx:if="{{error}}" class="error">{{error}}</text>
+
+  <view class="composer">
+    <input value="{{question}}" confirm-type="send" disabled="{{loading}}" placeholder="问一句：今天适合见客户吗？" bindinput="inputQuestion" bindconfirm="submit" />
+    <button disabled="{{loading}}" bindtap="submit">→</button>
+  </view>
+</view>

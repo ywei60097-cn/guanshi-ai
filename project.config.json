@@ -1,11 +1,39 @@
 {
   "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
   "projectname": "guanshi-daily-divination",
   "description": "观时：子平命理日常助手",
-  "appid": "touristappid",
+  "appid": "wxec3ce4feda82f0f6",
   "setting": {
     "es6": true,
     "minified": true,
-    "postcss": true
-  }
+    "postcss": true,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "enhance": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "miniprogram",
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {},
+  "libVersion": "3.16.1"
 }

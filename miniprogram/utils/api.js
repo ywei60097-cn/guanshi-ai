@@ -1,27 +1,32 @@
-const { API_BASE_URL } = require("./config");
-
-function request(path, method, data) {
-  if (!API_BASE_URL || API_BASE_URL.includes("api.example.com")) {
-    return Promise.reject(new Error("请先在 utils/config.js 配置正式 API 域名"));
-  }
+function callCreateReading(data) {
   return new Promise((resolve, reject) => {
-    wx.request({
-      url: `${API_BASE_URL}${path}`,
-      method,
+    if (!wx.cloud) {
+      reject(new Error("当前基础库不支持云开发，请升级微信开发者工具或基础库"));
+      return;
+    }
+    wx.cloud.callFunction({
+      name: "createReading",
       data,
-      timeout: 5000,
-      header: { "content-type": "application/json" },
       success(response) {
-        if (response.statusCode >= 200 && response.statusCode < 300) return resolve(response.data);
-        reject(new Error(response.data && response.data.error ? response.data.error : "服务暂时不可用"));
+        const result = response.result || {};
+        console.log("Guanshi cloud result", result);
+        if (!result.error) return resolve(result);
+        reject(new Error(result.message || result.error || "云函数计算失败"));
       },
-      fail() { reject(new Error("网络连接失败，请稍后再试")); }
+      fail(error) {
+        const detail = error && (error.errMsg || error.message);
+        reject(new Error(detail ? `云函数调用失败：${detail}` : "云函数调用失败，请稍后再试"));
+      }
     });
   });
 }
 
 function createReading(profile, scene, choice, at) {
-  return request("/v1/readings", "POST", { profile, scene, choice, at });
+  return callCreateReading({ profile, scene, choice, at });
 }
 
-module.exports = { createReading };
+function askGuanshi(profile, question, at, context) {
+  return callCreateReading({ action: "ask", profile, question, at, context });
+}
+
+module.exports = { createReading, askGuanshi };

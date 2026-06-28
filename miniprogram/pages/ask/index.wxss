@@ -1,0 +1,28 @@
+.ask-page { padding-bottom: 520rpx; }
+.quick { position: fixed; left: 32rpx; right: 32rpx; bottom: 166rpx; z-index: 8; padding: 0 0 18rpx; background: linear-gradient(180deg, rgba(6,8,18,.78), rgba(6,8,18,.96)); box-shadow: 0 -16rpx 40rpx rgba(6,8,18,.5); }
+.bubble.assistant { margin-top: 48rpx; padding: 30rpx 0; border-top: 1rpx solid rgba(178,205,213,.28); border-bottom: 1rpx solid rgba(178,205,213,.16); }
+.quick > text, .assistant-label { display: block; margin-bottom: 22rpx; color: #58f6c5; font-size: 19rpx; letter-spacing: 3rpx; }
+.quick-item { display: flex; justify-content: space-between; gap: 20rpx; margin-top: 12rpx; padding: 20rpx 22rpx; border: 1rpx solid rgba(88,246,197,.18); color: #e9f3ee; background: rgba(13,20,36,.62); font-size: 25rpx; line-height: 1.55; }
+.quick-item text { color: #58f6c5; }
+.chat { margin-top: 34rpx; }
+.bubble.user { width: fit-content; max-width: 86%; margin: 34rpx 0 0 auto; padding: 22rpx 26rpx; border: 1rpx solid rgba(88,246,197,.45); color: #06110f; background: #58f6c5; font-size: 27rpx; line-height: 1.65; }
+.assistant-title { display: block; color: #58f6c5; font-family: "Songti SC", "STSong", serif; font-size: 54rpx; font-weight: 300; line-height: 1.18; }
+.assistant-main { display: block; margin-top: 28rpx; font-size: 30rpx; line-height: 1.9; }
+.assistant-error { color: #ff9db2; font-size: 26rpx; line-height: 1.7; }
+.suggestions { margin-top: 32rpx; }
+.suggestion { padding: 20rpx 0; border-top: 1rpx solid rgba(178,205,213,.16); color: #8d9aa9; font-size: 25rpx; line-height: 1.75; }
+.basis { padding: 28rpx 0 0; color: #8d9aa9; font-size: 24rpx; line-height: 1.8; }
+.basis > text { display: block; margin-bottom: 12rpx; color: #58f6c5; font-size: 18rpx; letter-spacing: 3rpx; }
+.debug { margin-top: 24rpx; color: #ff9db2; font-size: 22rpx; line-height: 1.6; }
+.luopan-wrap { display: flex; justify-content: center; padding: 56rpx 0 30rpx; }
+.luopan { position: relative; width: 230rpx; height: 260rpx; }
+.luopan-image { display: block; width: 230rpx; height: 230rpx; border-radius: 50%; filter: drop-shadow(0 0 20rpx rgba(88,246,197,.26)); animation: luopan-breathe 2.4s ease-in-out infinite; }
+.luopan-text { position: absolute; left: 0; right: 0; bottom: 0; color: #58f6c5; font-size: 20rpx; letter-spacing: 3rpx; text-align: center; }
+.composer { position: fixed; left: 32rpx; right: 32rpx; bottom: 44rpx; display: flex; gap: 14rpx; align-items: center; padding: 14rpx; border: 1rpx solid rgba(88,246,197,.45); background: rgba(6,8,18,.96); box-shadow: 0 -18rpx 45rpx rgba(6,8,18,.55); }
+.composer input { flex: 1; height: 72rpx; padding: 0 18rpx; color: #e9f3ee; font-size: 26rpx; }
+.composer button { flex: 0 0 72rpx; width: 72rpx; height: 72rpx; padding: 0; color: #06110f; background: #58f6c5; font-size: 34rpx; line-height: 72rpx; }
+.composer button[disabled] { color: rgba(6,17,15,.55); background: rgba(88,246,197,.5); }
+@keyframes luopan-breathe {
+  0%, 100% { opacity: .78; transform: scale(.96) rotate(-1deg); }
+  50% { opacity: 1; transform: scale(1.03) rotate(1deg); }
+}

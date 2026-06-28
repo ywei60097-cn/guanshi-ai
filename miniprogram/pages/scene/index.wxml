@@ -1,8 +1,9 @@
 <view class="page">
   <button class="back" bindtap="back">返回今日场</button>
   <text class="eyebrow">SCENE / {{detail}}</text><text class="display">{{title}}</text>
-  <text class="lead">每个场景都采用同一条经审计的命理推演链；现实限制始终拥有更高优先级。</text>
-  <view class="options"><text>01 / 选择条件</text><view class="pills"><view wx:for="{{choices}}" wx:key="*this" class="pill {{selectedIndex === index ? 'active' : ''}}" data-index="{{index}}" bindtap="choose">{{item}}</view></view></view>
+  <text class="lead">{{lead}}</text>
+  <view wx:if="{{isMahjong}}" class="mahjong-note"><text>01 / 判断方式</text><view>按今日命盘信号给四方位排序，不把座位当作输赢预测。不能选位时，可追问“我只能坐南位，可以吗？”</view></view>
+  <view wx:else class="options"><text>01 / 选择条件</text><view class="pills"><view wx:for="{{choices}}" wx:key="*this" class="pill {{selectedIndex === index ? 'active' : ''}}" data-index="{{index}}" bindtap="choose">{{item}}</view></view></view>
   <view class="time"><text>02 / 发生时间</text><picker mode="time" value="{{time}}" bindchange="bindTime"><view>{{time}}</view></picker></view>
   <text wx:if="{{error}}" class="error">{{error}}</text>
   <button class="launch" loading="{{loading}}" bindtap="submit">生成场景建议 <text>→</text></button>
